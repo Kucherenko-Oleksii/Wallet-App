@@ -1,6 +1,6 @@
-$backGroundColor: #d9d8d8;
-$fontFamily: 'Libre Baskerville';
-$color: #b0aeae;
+$backGroundColor: #e4e4e4;
+$fontFamily: 'Roboto';
+$color: #c0bbbb;
 
 body{
   background-color: $backGroundColor;
@@ -8,15 +8,13 @@ body{
   font-size: 12px;
 }
 
-
-@media(max-width: 428px){
+@media (max-width: 428px), (max-width: 414px), (max-width: 375px){
   .menu{
     margin-top: 7%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     grid-gap: 2px;
-
   }
   .cardBalance{
     grid-column: 1 / 2;
@@ -29,7 +27,8 @@ body{
     border-radius: 10px;
   }
   .paragraphAvailable{
-    color: $color
+    color: $color;
+    font-family: 'Libre Baskerville';
   }
   .cardBalance h1,p{
     margin: 0;
@@ -44,9 +43,11 @@ body{
     background-color: #fff;
     width: auto;
     border-radius: 10px;
+    font-family: 'Libre Baskerville';
   }
   .paragraphDailyPoints{
-    color: $color
+    color: $color;
+    font-family: 'Libre Baskerville';
   }
   .noPaymentDue{
     grid-column: 2 / 3;
@@ -56,25 +57,61 @@ body{
     padding: 5%;
     background-color: #fff;
     border-radius: 10px;
+    font-family: 'Libre Baskerville';
   }
   .messageNoPaymentDue{
-    color: $color
+    color: $color;
+    font-family: 'Libre Baskerville';
+  }
+  .messageTransaction{
+    color: $color;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .transactionName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:larger;
   }
   .checkButton{
     font-size: 4em;
     float: right;
     margin: 5%;
   }
-
-  .transactionHeader{
-    margin-left: 4%;
+  .payLogoContainer{
+    display: 'flex';
+    align-items: 'center'
   }
-}
-
-@media(max-width: 414px){
-
-}
-
-@media(max-width: 375px){
-
+  .payLogo{
+    font-size: 4em;
+  }
+  .headerLatestTransactions{
+    margin-left: 2%;
+  }
+  .transactionList{
+    font-family: 'Libre Baskerville';
+    background-color: #fff;
+    border-radius: 10px;
+    list-style-type: none;
+    margin: 2% 2% 0 2%;
+    padding: 0;
+    font-weight: 900;
+  }
+  .transactionList li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    padding: 2%;
+  }
+  .transactionList li:not(:last-child) {
+    position: relative;
+  }
+  .transactionList li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20px; 
+    width: calc(100% - 20px); 
+    border-bottom: 1px solid #c0bbbb;
+  }
+  .transactionList li span {
+    font-weight: bold;
+  }
 }

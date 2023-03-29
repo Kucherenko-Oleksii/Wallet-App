@@ -1,64 +1,61 @@
-import React from 'react';
+import React, {useState} from 'react';
+import latestTransactions from '../data/latestTransactions.json';
+import { SiApplepay } from 'react-icons/si';
+import { TransactionDetail } from './TransactionDetail';
 
-const latestTransactions = [
-  {
-    id: 1,
-    type: 'Payment',
-    amount: '+$50.00',
-    name: 'IKEA',
-    description: 'Furniture purchase',
-    date: 'Today',
-    pending: true,
-  },
-  {
-    id: 2,
-    type: 'Credit',
-    amount: '-$25.00',
-    name: 'Target',
-    description: 'Grocery shopping',
-    date: 'Yesterday',
-    pending: false,
-  },
-  {
-    id: 3,
-    type: 'Payment',
-    amount: '+$100.00',
-    name: 'Amazon',
-    description: 'Electronics purchase',
-    date: 'Monday',
-    authorizedUser: 'John Doe',
-    pending: false,
-  },
-];
+// Створив для форматування дати, яка буде приходити з json файлу  
+const formatDate = (dateString) =>{
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const date = new Date(dateString);
+  return daysOfWeek[date.getDay()];
+}
 
-function LatestTransactions() {
+export const LatestTransactions = () => {
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
+
+  const handleTransactionClick = (transaction) => {
+    setSelectedTransaction(transaction);
+  };
+
   return (
     <div>
-      <h2>Latest Transactions</h2>
-      <ul>
-        {latestTransactions.map(transaction => (
-          <li key={transaction.id}>
-            {transaction.pending && <span>Pending</span>}
-            {transaction.authorizedUser && (
-              <span>{transaction.authorizedUser} - </span>
-            )}
-            <span>{transaction.date}</span>
-            <div>
-              <span>
-                {transaction.type}
-              </span>
-              <span>{transaction.amount}</span>
-              <span>{transaction.name}</span>
-              <span>{transaction.description}</span>
-            </div>
-            <div>
-              {/*Додати логотипи */}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <h2 className='headerLatestTransactions'>Latest Transactions</h2>
+      {selectedTransaction ? (
+        <TransactionDetail
+          transaction={selectedTransaction}
+          onClose={() => setSelectedTransaction(null)}
+        />
+      ) : (
+        <ul className='transactionList'>
+          {latestTransactions.map((transaction) => (
+            <li key={transaction.id} onClick={() => handleTransactionClick(transaction)}>
+              <div className='payLogoContainer'>
+                <SiApplepay className='payLogo' />
+              </div>
+              <div>
+                <span className='transactionName'>
+                  <strong>{transaction.name}</strong>
+                </span>
+                {transaction.pending && (
+                  <p className='messageTransaction'>Pending-</p>
+                )}
+                <p className='messageTransaction'>{transaction.description}</p>
+                {transaction.authorizedUser && (
+                  <span className='messageTransaction'>
+                    {transaction.authorizedUser} - 
+                  </span>
+                )}
+                <span className='messageTransaction'>
+                  {formatDate(transaction.date)}
+                </span>
+              </div>
+              <div>
+                <p>{transaction.amount}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
-
-export default LatestTransactions;

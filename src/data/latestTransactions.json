@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "amount": "+ $50.00",
+        "name": "IKEA",
+        "description": "Furniture purchase",
+        "authorizedUser": "Maria Doe",
+        "date": "2023-03-29T22:00:00.000",
+        "pending": true
+    },
+    {
+        "id": 2,
+        "amount": "- $25.00",
+        "name": "Target",
+        "description": "Grocery shopping",
+        "authorizedUser": "Alex Doe",
+        "date": "2023-03-28T22:00:00.000",
+        "pending": false
+    },
+    {
+        "id": 3,
+        "amount": "+ $100.00",
+        "name": "Amazon",
+        "description": "Electronics purchase",
+        "date": "2023-03-27T22:00:00.000",
+        "authorizedUser": "John Doe",
+        "pending": false
+    },
+    {
+        "id": 4,
+        "amount": "- $15.00",
+        "name": "Starbucks",
+        "description": "Coffee",
+        "date": "2023-03-29T22:00:00.000",
+        "pending": true
+    },
+    {
+        "id": 5,
+        "amount": "+ $200.00",
+        "name": "Best Buy",
+        "description": "Electronics purchase",
+        "date": "2023-03-29T22:00:00.000",
+        "authorizedUser": "Jane Doe",
+        "pending": false
+    }
+]
