@@ -3,6 +3,7 @@
 
 https://user-images.githubusercontent.com/91497964/228967520-14fe2061-69a0-4bbd-a650-3b691eebf53a.mp4
 
+## I have deployed this application on Netlify, here is the link: https://radiant-starship-22c430.netlify.app/ **(Only to be run on smartphones)**
 
 # Getting Started with Create React App
 
