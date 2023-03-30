@@ -1,6 +1,6 @@
-$backGroundColor: #e4e4e4;
+$backGroundColor: #e7e7e7;
 $fontFamily: 'Roboto';
-$color: #c0bbbb;
+$color: #adadad;
 
 body{
   background-color: $backGroundColor;
@@ -113,5 +113,50 @@ body{
   }
   .transactionList li span {
     font-weight: bold;
+  }
+  .arrowBack{
+    font-size: 2em;
+  }
+  .arrowMenu{
+    margin: 7% 0 0 2%;
+  }
+
+  .menuTransaction{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .transactionContainer{
+    width: 90%;
+  }
+  .headerAmount{
+    font-size: 3em;
+    margin: 7% 0;
+  }
+  .transactionData{
+    color:$color;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 10%;
+  }
+  .transactionView{
+    padding: 7%;
+    background-color: #fff;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #c0bbbb;
+  }
+  .transactionTotal{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 0 0 10px 10px;
+    border-bottom: none;
+  }
+  .transactionTotal :nth-child(2){
+    text-align: end;
+  }
+  .transactionDescription{
+    font-family: Arial, Helvetica, sans-serif;
+    color: $color;
   }
 }
